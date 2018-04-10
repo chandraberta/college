@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+.button {
+  background-color: #f4511e;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-align: center;
+  font-size: 16px;
+  margin: 4px 2px;
+  opacity: 0.6;
+  transition: 0.3s;
+  display: inline-block;
+  text-decoration: none;
+  cursor: pointer;
+  width: 100%;
+}
+</style>
+</head>
+<body>
+
+<h2 style="text-align: center;">Data Pemilik Akun</h2>
+<p style="text-align: center;">Berikut adalah data pemilik akun yang terdaftar</p>
+
+<table>
+    <tr>
+      <td>Nama</td>
+      <td>Alamat</td>
+      <td>Email</td>
+      <td>Password</td>
+      <td>Usia</td>
+      <td>Pendidikan</td>
+    </tr>
+    
+    <?php foreach ($akun -> result_array() as $key): ?>
+      <tr>
+        <td><?php echo $key['nama'] ?></td>
+        <td><?php echo $key['alamat'] ?></td>
+        <td><?php echo $key['email'] ?></td>
+        <td><?php echo $key['password'] ?></td>
+        <td><?php echo $key['usia'] ?></td>
+        <td><?php echo $key['pendidikan'] ?></td>
+      </tr>
+    <?php endforeach ?>
+  </table>
+  <br><br>
+  <a href="<?php echo base_url();?>index.php/crud/download">
+<button class="button">Download File Daftar Akun</button></a>
+
+</body>
+</html>
